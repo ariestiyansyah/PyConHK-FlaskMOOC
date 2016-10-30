@@ -21,7 +21,7 @@ class User(BaseModel):
 
 class Course(BaseModel):
 	id = PrimaryKeyField()
-	code = CharField(unique=True)
+	codex = CharField(unique=True)
 	name = CharField()
 	instructor = CharField()
 	desc = TextField()
