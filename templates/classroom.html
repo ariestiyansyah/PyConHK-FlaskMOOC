@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+	<head>
+		<title>{{course.name}}</title>
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap.min.css')}}">
+	</head>
+	<body>
+		<a href='\home\'>Course List</a>
+		<a href='\logout\'>Log Out</a>
+
+		<h1>{{course.name}}	({{course.code}})</h1>
+		<strong>Instructor</strong> : {{course.instructor}}
+		<br><br><br>
+		{% for i in range (meetings.count()) %}
+		<h4>Meeting {{i+1}} — {{meetings[i].topic}}</h4>
+		<p>{{meetings[i].desc}}</p>
+		Resources:
+			<ul>
+			{% for r in resources %}
+				{% if r.meeting_id.id == meetings[i].id %}
+					<!-- the filename and its path -->
+					{% set filepathAndName = r.path + r.filename %}
+					
+					<li><a href="{{ url_for('static', filename= filepathAndName)}}">{{r.filename}}</a></li>
+				{% endif %}
+
+			{% endfor %}
+			</ul>
+			<br>
+		{% endfor %}
+	</body>
+</html>

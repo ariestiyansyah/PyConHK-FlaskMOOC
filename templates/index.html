@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Mini MOOC</title>
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap.min.css')}}">
+	</head>
+
+	<body>
+		{% if message is defined %}
+			<div class="alert alert-info">{{message}}</div>
+		{% endif %}
+		
+		<form action="/signin/" method="Post">
+			Username :
+			<input type="text" name="username">
+			<br/>
+
+			Password :
+			<input type="password" name="password">
+			<br/>
+
+			<input type="submit" class="btn btn-primary" value="Log in">	
+		</form>
+
+		<a href="/signup/" class="btn btn-lg btn-success">Join Today</a>
+	</body>
+</html>

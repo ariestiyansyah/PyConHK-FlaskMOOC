@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Course List</title>
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='bootstrap.min.css')}}">
+	</head>
+	<body>
+		<a href='\logout\'>Log Out</a>
+		<h1>Course List</h1>
+		{% for course in courses %}
+			<h2><a href="/classroom/{{course.code}}/">{{course.name}}</a></h2>
+			Instructor : {{course.instructor}}
+			<p><em>{{course.code}}</em> — {{course.desc}}</p>
+		{% endfor %}
+	</body>
+</html>
